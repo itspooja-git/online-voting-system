@@ -1,0 +1,45 @@
+{% extends "poll/base.html" %} 
+{% block title %}Online Voting System{%endblock%} 
+{% block content %}
+<br>
+<div class="jumbotron">
+  {% if messages %} {% for message in messages %}
+  <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %} {% endif %}
+  <h1 class="display-4 d-flex justify-content-center">
+    Welcome to Online Voting System
+  </h1>
+  <hr class="my-4 bg-dark d-flex justify-content-center" style="height: 2px" />
+  <div class="d-flex justify-content-center">
+    <img
+      src="https://www.pngmart.com/files/15/Red-Voting-Ballot-Box-PNG.png"
+      alt="Ballot Box"
+      width="300"
+      height="300"
+    />
+  </div>
+
+  <hr class="my-5 bg-dark d-flex justify-content-center" style="height: 2px" />
+
+  <p class="lead d-flex justify-content-center">
+    This is a simple voting system where you can vote for your favourite
+    candidate.
+  </p>
+  <p class="lead d-flex justify-content-center">
+    Admin can add candidates and post the election.
+  </p>
+  <p class="lead d-flex justify-content-center">
+    User can vote for the candidates.
+  </p>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(45deg, #6ef195, #00e3fd);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "poll/base.html" %}
+{% block title %}Update Profile{% endblock %}
+{% block content %}
+{% load widget_tweaks %}
+
+<br>
+<div class="container-fluid as-full">
+  <div class="row as-full d-flex justify-content-center">
+    <div class="col-5 align-self-center">
+      <div class="card">
+        <div class="card-body">
+          {% if note %}
+          <h3 class="text text-muted">{{note}}</h3>
+          {% endif %}
+          <h5 class="card-title d-flex justify-content-center"> Update Profile</h5>
+          <form action="" method="POST">
+            {% csrf_token %}
+              {% for field in form %}
+              <div class="form-group">
+                {% if field.errors %}
+                  {% for error in field.errors %}
+                    <ul>
+                      <li>{{error}}</li>
+                    </ul>
+                  {% endfor %}
+                {% endif %}
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+                {% if field.help_text %}
+                <small class="form-text text-muted">{{field.help_text}}</small>
+                <br>
+                  {% endif %}
+                <br>
+              </div>
+            {% endfor %}
+            <button type="submit" class="col-md-12 btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(45deg, #b57bee, #00e3fd);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+
+{% endblock %}
